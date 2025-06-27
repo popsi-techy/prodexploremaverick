@@ -1,0 +1,18 @@
+.blogs-section {
+  padding: 4rem 2rem;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.blogs-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.blogs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
