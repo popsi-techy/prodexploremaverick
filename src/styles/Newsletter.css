@@ -1,0 +1,87 @@
+/* 📬 Newsletter Section Styles */
+
+.newsletter-section {
+  background-color: #1e293b; /* dark blue-gray */
+  color: #f8fafc;            /* light text */
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.newsletter-box {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-box h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #38bdf8; /* sky blue accent */
+}
+
+.newsletter-box p {
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 60%;
+  max-width: 300px;
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.newsletter-form input::placeholder {
+  color: #64748b;
+}
+
+.newsletter-form button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #38bdf8;
+  color: #1e293b;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: #0ea5e9;
+}
+
+.success-msg {
+  margin-top: 1rem;
+  color: #22c55e;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 600px) {
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+}

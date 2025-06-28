@@ -1,6 +1,6 @@
 .faq-section {
-  background: #111;
-  color: white;
+  background: #f2f3f5;
+  color: rgb(0, 0, 0);
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -17,7 +17,7 @@
 }
 
 .faq-item {
-  background: #1a1a1a;
+  background: #ffffff;
   border: 1px solid #333;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -36,5 +36,5 @@
 .faq-answer {
   margin-top: 0.75rem;
   font-size: 0.95rem;
-  color: #ccc;
+  color: #000000;
 }
