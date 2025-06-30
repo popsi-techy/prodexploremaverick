@@ -4,7 +4,7 @@
   color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* This will center content vertically */
   padding: 1.6rem 1rem 4rem;
   overflow: hidden;
   text-align: center;
@@ -42,6 +42,12 @@
 .hero-content {
   max-width: 900px;
   margin: auto;
+  /* Add flex properties to hero-content to prevent shifting */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Allow it to grow and fill available space */
 }
 
 .hero h1 {
@@ -155,18 +161,112 @@
   }
 }
 
+/* Add this to your existing HeroSection.css */
 
 
+.qa-section-glass {
+  margin-top: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 820px;
+  max-width: 1080px;
+  margin-inline: auto;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: #fff;
+}
+
+.qa-heading {
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.qa-input-wrapper {
+  display: flex;
+  position: relative; /* Keep relative for correct positioning of clear button */
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.qa-input-glass::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Light white, adjust as needed */
+}
+
+.qa-input-glass {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  /* Add more right padding to make space for the clear button */
+  padding-right: 3rem; 
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  backdrop-filter: blur(8px);
+  outline: none;
+}
+
+.qa-clear-btn {
+  position: absolute; /* Keep absolute to position inside input */
+  right: 5.5rem; /* Adjust this value to position correctly relative to the input and submit button */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0.2rem; /* Add some padding for easier clicking */
+}
 
 
+.qa-submit-btn {
+  background: #248A3D;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.3s ease;
+}
+
+.qa-submit-btn:hover {
+  background: #1e7031;
+}
+
+.qa-answer-box-wrapper {
+  min-height: 100px; /* Increased min-height to accommodate for answers */
+  display: flex; /* Use flex to align error/answer box */
+  align-items: flex-start; /* Align content to the start */
+  justify-content: center; /* Center horizontally if content is smaller */
+  flex-direction: column; /* Stack children vertically */
+}
 
 
+.qa-answer-box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.2rem;
+  border-radius: 12px;
+  text-align: left;
+  color: white;
+  line-height: 1.6;
+  font-size: 1rem;
+  white-space: pre-line;
+  width: 100%; /* Ensure it takes full width of its container */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  max-height: 200px; /* Add a max-height for very long answers */
+  overflow-y: auto; /* Enable scrolling for long answers */
+}
 
-
-
-
-
-
-
-
-
+.qa-error {
+  color: #ff6b6b;
+  font-size: 0.95rem;
+  width: 100%; /* Ensure error message also takes full width */
+  text-align: center; /* Center the error message */
+}

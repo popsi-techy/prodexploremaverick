@@ -14,13 +14,21 @@ import bgVideo4 from '../assets/bgvideo4.mp4';
 
 const videoList = [bgVideo1, bgVideo2, bgVideo3, bgVideo4];
 
+// ... (all imports remain the same)
+
 const HeroSection = () => {
   const videoARef = useRef(null);
   const videoBRef = useRef(null);
   const [currentVideo, setCurrentVideo] = useState(0);
   const [isAActive, setIsAActive] = useState(true);
 
-  // Play the first video on mount
+  // AI Chat States
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  // Background video cycle logic
   useEffect(() => {
     const currentRef = videoARef.current;
     if (currentRef) {
@@ -35,41 +43,67 @@ const HeroSection = () => {
       const nextIndex = (currentVideo + 1) % videoList.length;
       const inactiveRef = isAActive ? videoBRef.current : videoARef.current;
 
-      // Set next video source on inactive player
       inactiveRef.src = videoList[nextIndex];
       inactiveRef.currentTime = 0;
       inactiveRef.play();
 
-      // After a short delay, switch active player
       setTimeout(() => {
         setIsAActive(!isAActive);
         setCurrentVideo(nextIndex);
-      }, 200); // small buffer before switching
+      }, 200);
     };
 
     activeRef.addEventListener('ended', handleEnded);
     return () => activeRef.removeEventListener('ended', handleEnded);
   }, [currentVideo, isAActive]);
 
+  // 🧠 Ask AI
+  const handleAskQuestion = async () => {
+    if (!question.trim()) {
+      setError('Please enter a question.');
+      return;
+    }
+    setLoading(true);
+    setAnswer('');
+    setError(null);
+
+    try {
+      const response = await fetch('http://localhost:3001/ask-gemini', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setAnswer(data.answer);
+    } catch (err) {
+      console.error("Error fetching Gemini answer:", err);
+      setError('Failed to get an answer. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // 🔁 Clear everything
+  const handleClear = () => {
+    setQuestion('');
+    setAnswer('');
+    setError(null);
+  };
+
   return (
     <section className="hero">
-      {/* Two videos for crossfade */}
-      <video
-        ref={videoARef}
-        className={`hero-video ${isAActive ? 'active' : 'inactive'}`}
-        muted
-        playsInline
-      />
-      <video
-        ref={videoBRef}
-        className={`hero-video ${!isAActive ? 'active' : 'inactive'}`}
-        muted
-        playsInline
-      />
-
+      {/* Background Video Crossfade */}
+      <video ref={videoARef} className={`hero-video ${isAActive ? 'active' : 'inactive'}`} muted playsInline />
+      <video ref={videoBRef} className={`hero-video ${!isAActive ? 'active' : 'inactive'}`} muted playsInline />
       <div className="overlay"></div>
 
-      {/* Main content stays the same */}
       <div className="hero-content">
         <h1 className="fancy-heading">Wander Lust</h1>
         <h2 className="fancy-heading">Eager to World Traveler</h2>
@@ -80,36 +114,67 @@ const HeroSection = () => {
         <p>
           Dream of exploring far-off lands, but find yourself stuck when you lack information? Don't let a lack of knowledge derail your next adventure.
         </p>
-        <div className="hero-buttons">
-          <a href="#blogs" className="explore-btn">Explore Blogs</a>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSd107lNGDM35NqvolP3u7MU0jeeVlzxb_5Wa0PIYuKA5BAyQg/viewform?usp=header"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="write-btn"
-          >
-            Write Blog
-          </a>
-        </div>
-         <div className="sponsor-box">
-           <p>Explore Places</p>
-           <div className="slider-container">
-             <div className="slider-track">
-               {/* Repeat the logos twice for a seamless loop */}
-               <img src={con1} alt="logo" />
-               <img src={con2} alt="logo" />
-               <img src={con3} alt="logo" />
-               <img src={con4} alt="logo" />
-               <img src={con5} alt="logo" />
-               <img src={con1} alt="logo" />
-               <img src={con2} alt="logo" />
-               <img src={con3} alt="logo" />
-               <img src={con4} alt="logo" />
-               <img src={con5} alt="logo" />
-             </div>
-           </div>
-         </div>
 
+        {/* ✈️ AI Chat Box */}
+        <div className="qa-section-glass">
+          <h3 className="qa-heading">Ask AI about a destination!</h3>
+
+          <div className="qa-input-wrapper">
+            <input
+              type="text"
+              className="qa-input-glass"
+              placeholder="e.g., Best time to visit Paris?"
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleAskQuestion();
+              }}
+            />
+            {question && (
+              <button className="qa-clear-btn" onClick={handleClear} title="Clear">
+                &#x21bb; {/* Unicode for ↻ */}
+              </button>
+            )}
+            <button
+              className="qa-submit-btn"
+              onClick={handleAskQuestion}
+              disabled={loading}
+            >
+              {loading ? 'Asking...' : 'Ask'}
+            </button>
+          </div>
+
+          {/* Lock height to prevent layout shift */}
+          {error && <p className="qa-error">{error}</p>}
+          {answer && (
+            <div className="qa-answer-box">
+              <strong>Answer:</strong>
+              <p>{answer}</p>
+            </div>
+          )}
+
+        </div>
+
+        {/* 🎯 Sponsors (Commented Out) */}
+        {/*
+        <div className="sponsor-box">
+          <p>Explore Places</p>
+          <div className="slider-container">
+            <div className="slider-track">
+              <img src={con1} alt="logo" />
+              <img src={con2} alt="logo" />
+              <img src={con3} alt="logo" />
+              <img src={con4} alt="logo" />
+              <img src={con5} alt="logo" />
+              <img src={con1} alt="logo" />
+              <img src={con2} alt="logo" />
+              <img src={con3} alt="logo" />
+              <img src={con4} alt="logo" />
+              <img src={con5} alt="logo" />
+            </div>
+          </div>
+        </div>
+        */}
       </div>
     </section>
   );
