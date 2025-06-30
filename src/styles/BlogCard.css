@@ -1,42 +1,68 @@
 .blog-card {
   background: #ffffff;
-  border: 1px solid #d0cce7;
-  box-shadow: 0px 1px 8px 0px rgba(16, 24, 40, 0.08);
-  border-radius: 10px;
+  box-shadow: 0px 4px 16px rgba(16, 24, 40, 0.1);
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
+  padding: 1.5rem;
+  text-align: left; /* ✅ left-align all content */
 }
 
 .blog-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
+  box-shadow: 0px 8px 20px rgba(16, 24, 40, 0.15);
 }
 
 .blog-image {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 .blog-content {
-  padding: 1rem;
-  color: rgb(0, 0, 0);
+  color: #263238;
 }
 
 .blog-content h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: #1e293b;
 }
 
 .blog-content .author {
   font-size: 0.9rem;
-  color: #000000;
+  color: #607D8B;
   margin-bottom: 0.5rem;
 }
 
 .blog-content .desc {
-  font-size: 0.95rem;
-  color: #000000;
+  font-size: 1rem;
+  letter-spacing: 0.02rem;
+  color: #27363d;
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
+
+/* existing styles... */
+
+.read-more-text {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #1e40af;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.read-more-text:hover {
+  color: #2563eb;
+}
+
+

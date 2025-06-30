@@ -28,12 +28,12 @@
 .featured-content h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #1e3a8a;
+  color: #263238;
 }
 
 .featured-content p {
   font-size: 1.1rem;
-  color: #444;
+  color: #78909C;
   margin-bottom: 1.5rem;
 }
 
@@ -47,6 +47,25 @@
   font-weight: 500;
   transition: background 0.2s ease;
 }
+
+.blog-tags {
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 6px 12px;
+  border: 1px solid #CFD8DC;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: #263238;
+  background-color: #ffffff;
+  font-weight: 500;
+}
+
 
 .read-more-btn:hover {
   background-color: #1d4ed8;

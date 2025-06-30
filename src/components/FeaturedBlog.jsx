@@ -1,7 +1,6 @@
-// FeaturedBlog.jsx
 import React from 'react';
 import '../styles/FeaturedBlog.css';
-import croatiaImg from '../assets/blog1.jpg';
+import croatiaImg from '../assets/croatia.jpg'; // Ensure this path is correct
 
 const FeaturedBlog = () => {
   return (
@@ -9,14 +8,23 @@ const FeaturedBlog = () => {
       <div className="featured-blog">
         <div className="featured-content">
           <h2>Explore Croatia</h2>
+          <p className="author">By Aman Kumar </p>
           <p>
-            Discover the stunning beauty of Croatia — from the historic streets of Dubrovnik
-            to the crystal-clear waters of the Adriatic Sea. A perfect mix of culture and coastline.
+            Discover the stunning beauty of Croatia, from streets of Dubrovnik
+            to the crystal-clear waters. A perfect mix of culture and coastline.
           </p>
+
+          {/* 🔖 Tags Section */}
+          <div className="blog-tags">
+            <span className="tag">#croatia</span>
+            <span className="tag">#adventure</span>
+            <span className="tag">#travel</span>
+            <span className="tag">#beachlife</span>
+          </div>
+
           <a
             href="/blogs/explore-croatia.html"
             className="read-more-btn"
-            target="_blank"
             rel="noopener noreferrer"
           >
             Read More →

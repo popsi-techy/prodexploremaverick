@@ -5,7 +5,8 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.09rem;
   background-color: ECEFF1;
   color: #fff;
   overflow-x: hidden;

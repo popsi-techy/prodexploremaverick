@@ -1,8 +1,8 @@
 /* 📬 Newsletter Section Styles */
 
 .newsletter-section {
-  background-color: #1e293b; /* dark blue-gray */
-  color: #f8fafc;            /* light text */
+  background-color: #ffffff; /* dark blue-gray */
+  color: #78909C;            /* light text */
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -15,11 +15,11 @@
 .newsletter-box h2 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: #38bdf8; /* sky blue accent */
+  color: #263238; /* sky blue accent */
 }
 
 .newsletter-box p {
-  color: #cbd5e1;
+  color: #78909C;
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
@@ -40,7 +40,7 @@
   width: 60%;
   max-width: 300px;
   background-color: #f1f5f9;
-  color: #0f172a;
+  color: #64748b;
 }
 
 .newsletter-form input::placeholder {
@@ -50,8 +50,8 @@
 .newsletter-form button {
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
-  background-color: #38bdf8;
-  color: #1e293b;
+  background-color: #1e40af;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -60,7 +60,7 @@
 }
 
 .newsletter-form button:hover {
-  background-color: #0ea5e9;
+  background-color: #1c3faa;
 }
 
 .success-msg {

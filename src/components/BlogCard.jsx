@@ -9,9 +9,12 @@ const BlogCard = ({ title, image, author, shortDesc, onClick }) => {
         <h3>{title}</h3>
         <p className="author">By {author}</p>
         <p className="desc">{shortDesc}</p>
+        <span className="read-more-text">Read More →</span>
       </div>
     </div>
   );
 };
 
 export default BlogCard;
+
+

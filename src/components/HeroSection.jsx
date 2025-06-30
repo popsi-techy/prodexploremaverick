@@ -7,9 +7,9 @@ import con3 from '../assets/conlogo3.png';
 import con4 from '../assets/conlogo4.png';
 import con5 from '../assets/conlogo5.png';
 
-import bgVideo1 from '../assets/bgvideo1.mp4';
+import bgVideo1 from '../assets/bgvideo3.mp4';
 import bgVideo2 from '../assets/bgvideo2.mp4';
-import bgVideo3 from '../assets/bgvideo3.mp4';
+import bgVideo3 from '../assets/bgvideo1.mp4';
 import bgVideo4 from '../assets/bgvideo4.mp4';
 
 const videoList = [bgVideo1, bgVideo2, bgVideo3, bgVideo4];
@@ -71,8 +71,8 @@ const HeroSection = () => {
 
       {/* Main content stays the same */}
       <div className="hero-content">
-        <h1>Wander Lust</h1>
-        <h2>Eager to World Traveler</h2>
+        <h1 className="fancy-heading">Wander Lust</h1>
+        <h2 className="fancy-heading">Eager to World Traveler</h2>
         <p>
           Have you ever thought of travelling the world and wanted to explore different places.
           But you did not know anything about the place and cancelled your plan.
@@ -91,16 +91,25 @@ const HeroSection = () => {
             Write Blog
           </a>
         </div>
-        <div className="sponsor-box">
-          <p>Explore 100+ countries</p>
-          <div className="sponsor-logos">
-            <img src={con1} alt="logo" />
-            <img src={con2} alt="logo" />
-            <img src={con3} alt="logo" />
-            <img src={con4} alt="logo" />
-            <img src={con5} alt="logo" />
-          </div>
-        </div>
+         <div className="sponsor-box">
+           <p>Explore Places</p>
+           <div className="slider-container">
+             <div className="slider-track">
+               {/* Repeat the logos twice for a seamless loop */}
+               <img src={con1} alt="logo" />
+               <img src={con2} alt="logo" />
+               <img src={con3} alt="logo" />
+               <img src={con4} alt="logo" />
+               <img src={con5} alt="logo" />
+               <img src={con1} alt="logo" />
+               <img src={con2} alt="logo" />
+               <img src={con3} alt="logo" />
+               <img src={con4} alt="logo" />
+               <img src={con5} alt="logo" />
+             </div>
+           </div>
+         </div>
+
       </div>
     </section>
   );
