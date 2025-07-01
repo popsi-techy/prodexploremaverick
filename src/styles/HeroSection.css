@@ -177,11 +177,30 @@
   color: #fff;
 }
 
+
+
+.qa-heading-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+
 .qa-heading {
   margin-bottom: 1.5rem;
   font-size: 1.3rem;
   text-align: left;
 }
+
+.bot-gif {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  top: -12px; /* tweak this number until it looks perfect */
+  object-fit: contain;
+}
+
+
 
 .qa-input-wrapper {
   display: flex;
@@ -209,6 +228,9 @@
   outline: none;
 }
 
+
+
+
 .qa-clear-btn {
   position: absolute; /* Keep absolute to position inside input */
   right: 5.5rem; /* Adjust this value to position correctly relative to the input and submit button */
@@ -225,7 +247,7 @@
 
 
 .qa-submit-btn {
-  background: #248A3D;
+  background: linear-gradient(135deg, #001D6D, #0040B7, #0062FF);
   border: none;
   color: white;
   font-size: 1rem;
@@ -233,12 +255,15 @@
   border-radius: 12px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .qa-submit-btn:hover {
-  background: #1e7031;
+  background: linear-gradient(135deg, #0062FF, #203a43, #001D6D);
+  background-position: right center;
+  transform: scale(1.02);
 }
+
 
 .qa-answer-box-wrapper {
   min-height: 100px; /* Increased min-height to accommodate for answers */

@@ -1,18 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/HeroSection.css';
 
-import con1 from '../assets/conlogo1.png';
-import con2 from '../assets/conlogo2.png';
-import con3 from '../assets/conlogo3.png';
-import con4 from '../assets/conlogo4.png';
-import con5 from '../assets/conlogo5.png';
 
 import bgVideo1 from '../assets/bgvideo3.mp4';
 import bgVideo2 from '../assets/bgvideo2.mp4';
-import bgVideo3 from '../assets/bgvideo1.mp4';
-import bgVideo4 from '../assets/bgvideo4.mp4';
 
-const videoList = [bgVideo1, bgVideo2, bgVideo3, bgVideo4];
+import botGif from '../assets/bot.gif'; // Adjust path as needed
+
+
+const videoList = [bgVideo1, bgVideo2];
 
 // ... (all imports remain the same)
 
@@ -118,7 +114,10 @@ const HeroSection = () => {
 
         {/* ✈️ AI Chat Box */}
         <div className="qa-section-glass">
-          <h3 className="qa-heading">Ask AI about a destination!</h3>
+          <div className="qa-heading-with-icon">
+            <img src={botGif} alt="Bot" className="bot-gif" />
+            <h3 className="qa-heading">Ask SnowAI about a destination!</h3>
+          </div>
 
           <div className="qa-input-wrapper">
             <input
@@ -131,17 +130,13 @@ const HeroSection = () => {
                 if (e.key === 'Enter') handleAskQuestion();
               }}
             />
-            {question && (
-              <button className="qa-clear-btn" onClick={handleClear} title="Clear">
-                &#x21bb; {/* Unicode for ↻ */}
-              </button>
-            )}
+            
             <button
               className="qa-submit-btn"
-              onClick={handleAskQuestion}
+              onClick={answer ? handleClear : handleAskQuestion}
               disabled={loading}
             >
-              {loading ? 'Asking...' : 'Ask'}
+              {loading ? 'Asking...' : answer ? 'Other Question' : 'Ask'}
             </button>
           </div>
 
@@ -156,26 +151,7 @@ const HeroSection = () => {
 
         </div>
 
-        {/* 🎯 Sponsors (Commented Out) */}
-        {/*
-        <div className="sponsor-box">
-          <p>Explore Places</p>
-          <div className="slider-container">
-            <div className="slider-track">
-              <img src={con1} alt="logo" />
-              <img src={con2} alt="logo" />
-              <img src={con3} alt="logo" />
-              <img src={con4} alt="logo" />
-              <img src={con5} alt="logo" />
-              <img src={con1} alt="logo" />
-              <img src={con2} alt="logo" />
-              <img src={con3} alt="logo" />
-              <img src={con4} alt="logo" />
-              <img src={con5} alt="logo" />
-            </div>
-          </div>
-        </div>
-        */}
+
       </div>
     </section>
   );
