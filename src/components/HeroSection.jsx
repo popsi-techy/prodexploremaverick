@@ -58,6 +58,7 @@ const HeroSection = () => {
   }, [currentVideo, isAActive]);
 
   // 🧠 Ask AI
+  const GEMINI_API_BASE_URL = import.meta.env.VITE_GEMINI_API_BASE_URL || 'http://localhost:3001'; // Fallback for local dev if not set
   const handleAskQuestion = async () => {
     if (!question.trim()) {
       setError('Please enter a question.');
