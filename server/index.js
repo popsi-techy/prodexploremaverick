@@ -8,8 +8,11 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Get the allowed origin from environment variables, fallback to local for dev
+const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173';
+
 app.use(cors({
-  origin: 'http://localhost:5174' // Ensure this matches your React app's port
+  origin:  allowedOrigin // Use the environment variable
 }));
 app.use(express.json());
 
