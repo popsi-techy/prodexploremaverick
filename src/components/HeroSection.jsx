@@ -68,7 +68,7 @@ const HeroSection = () => {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:3001/ask-gemini', {
+      const response = await fetch(`${GEMINI_API_BASE_URL}/ask-gemini`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
