@@ -30,7 +30,7 @@ const Footer = () => {
         {/* 📬 Contact / Credits */}
         <div className="footer-contact">
           <h4>Connect</h4>
-          <p>Email: wanderlust@travel.com</p>
+          <p>Email: amanlearn13@gmail.com</p>
           <p>Made with ❤️ by Aman</p>
           <p>&copy; {new Date().getFullYear()} Wander Lust</p>
         </div>
