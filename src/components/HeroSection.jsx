@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../styles/HeroSection.css';
 
 
-import bgVideo1 from '../assets/bgvideo3.mp4';
-import bgVideo2 from '../assets/bgvideo2.mp4';
+import bgVideo1 from '../assets/bgvideo9.mp4';
+import bgVideo2 from '../assets/bgvideo12.mp4';
 
 import botGif from '../assets/bot.gif'; // Adjust path as needed
 

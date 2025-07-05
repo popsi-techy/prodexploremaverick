@@ -17,7 +17,7 @@ const blogs = [
   {
     id: 2,
     title: 'Beaches of Bali',
-    author: 'Sneha Sinha',
+    author: 'Aman Kumar',
     shortDesc: 'Relax in the sun and surf of Bali’s tropical paradise, explore stunning beaches.',
     image: blogImg2,
     content: 'Bali, often referred to as the "Island of the Gods," is a tropical paradise in Indonesia known for its stunning beaches, lush rice terraces, vibrant culture, and spiritual atmosphere. Whether you are seeking adventure through surfing and hiking, relaxation in luxurious beach resorts, or cultural immersion in traditional temples and ceremonies, Bali offers something for every traveler. Its warm hospitality, delicious cuisine, and breathtaking landscapes make it a dream destination for explorers and peace-seekers alike.'
