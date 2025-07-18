@@ -8,8 +8,13 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-// Get the allowed origin from environment variables, fallback to local for dev
-const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173';
+// Define an array of allowed origins for CORS
+const allowedOrigins = [
+  'http://localhost:5173',          // Your local development frontend
+  'https://exploremaverick.web.app', // Your Firebase Hosting default URL
+  'https://prodexploremaverick-frontend.onrender.com', // Keep this ONLY if you still have an active frontend on Render that needs to access this backend
+  // 'https://your-custom-domain.com'  // Add your custom domain here if you set one up for Firebase Hosting
+];
 
 app.use(cors({
   origin:  allowedOrigin // Use the environment variable
