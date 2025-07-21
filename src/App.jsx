@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
+import { HeroSection } from './components/HeroSection.jsx';
 import BlogsSection from './components/BlogsSection';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
